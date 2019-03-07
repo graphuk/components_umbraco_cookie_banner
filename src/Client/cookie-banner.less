@@ -1,0 +1,70 @@
+
+@tablet: ~"(min-width: 736px)";
+@desktop: ~"(min-width: 1025px)";
+
+@maxContentWidth: 1170px;
+@desktopSideSpace: 40px;
+@tabletSideSpace: 30px;
+@mobileSideSpace: 20px;
+
+.cookie-banner {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	background: lightgray;
+	padding: 30px 0;
+
+	&__container {
+		padding: 0 @mobileSideSpace;
+		margin: 0 auto;
+		position: relative;
+
+		@media @tablet {
+			padding: 0 @tabletSideSpace;
+		}
+
+		@media @desktop {
+			max-width: @maxContentWidth;
+			padding: 0 @desktopSideSpace;
+		}
+	}
+
+	&__summary {
+		margin-bottom: 20px;
+		display: inline-block;
+	}
+
+	&__cancel {
+		position: absolute;
+		border: none;
+		background: none;
+		cursor: pointer;
+		top: 0;
+		right: 0;
+		font-size: 0;
+		background: url('cancel.svg') no-repeat center center;
+		width: 8px;
+		height: 8px;
+		outline: none;
+		transition: transform 0.2s ease;
+
+		&:hover {
+			transform: scale(1.5);
+		}
+	}
+
+	&__button {
+		display: inline-block;
+		padding: 5px 30px;
+		border-style: solid;
+		border-width: 1px;
+		transition: transform 0.2s ease;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}
